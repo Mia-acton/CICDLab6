@@ -2,14 +2,12 @@ package ie.atu.cicdweek7;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
 
 @Entity
 @Table(name = "persons")
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 public class Person {
     @Id
@@ -27,6 +25,15 @@ public class Person {
 
     public Person(Long id, String name, String email, String employeeId, String position, String department, Address address) {
         this.id = id;
+        this.name = name;
+        this.email = email;
+        this.employeeId = employeeId;
+        this.position = position;
+        this.department = department;
+        this.address = address;
+    }
+
+    public Person(String name, String email, String employeeId, String position, String department, Address address) {
         this.name = name;
         this.email = email;
         this.employeeId = employeeId;
